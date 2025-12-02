@@ -8,11 +8,15 @@ const Todo = () => {
   const token = localStorage.getItem("token");
 
   const fetchTodos = async () => {
-    const res = await axios.get("https://devtools-backend-1.onrender.com/api/todos", {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-    setTodos(res.data);
-  };
+  const res = await axios.get(
+    "https://devtools-backend-1.onrender.com/api/todos",
+    {
+      headers: { Authorization: `Bearer ${token}` },
+    }
+  );
+  setTodos(res.data);
+};
+
 
   const addTodo = async () => {
     if (!title) return;
