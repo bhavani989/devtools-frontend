@@ -8,7 +8,8 @@ const Todo = () => {
   const token = localStorage.getItem("token");
 
   const fetchTodos = async () => {
-    const res = await axios.get("http://localhost:5000/api/todos", {
+    const res = await axios.get("https://devtools-backend-1.onrender.com/api/todos", {
+
       headers: { Authorization: `Bearer ${token}` }
     });
     setTodos(res.data);
@@ -17,7 +18,7 @@ const Todo = () => {
   const addTodo = async () => {
     if (!title) return;
     await axios.post(
-      "http://localhost:5000/api/todos",
+      "https://devtools-backend-1.onrender.com/api/todos",
       { title },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -27,7 +28,7 @@ const Todo = () => {
 
   const toggle = async (id, completed) => {
     await axios.put(
-      `http://localhost:5000/api/todos/${id}`,
+      `https://devtools-backend-1.onrender.com/api/todos/${id}`,
       { completed: !completed },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -35,7 +36,7 @@ const Todo = () => {
   };
 
   const remove = async (id) => {
-    await axios.delete(`http://localhost:5000/api/todos/${id}`, {
+    await axios.delete(`https://devtools-backend-1.onrender.com/api/todos/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     fetchTodos();
